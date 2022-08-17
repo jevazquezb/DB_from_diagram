@@ -60,3 +60,11 @@ CREATE TABLE medical_treatment (
   FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY (treatment_id) REFERENCES treatments(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+/* Foreign key indexes */
+CREATE INDEX patient_id_asc ON medical_histories(patient_id);
+CREATE INDEX medical_history_id_asc ON invoices(medical_history_id);
+CREATE INDEX invoice_id_asc ON invoice_items(invoice_id);
+CREATE INDEX treatment_id_asc ON invoice_items(treatment_id);
+CREATE INDEX joining_medical_treatment_id_asc ON medical_treatment(medical_history_id);
+CREATE INDEX joining_treatment_id_asc ON medical_treatment(treatment_id);
